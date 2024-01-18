@@ -1,0 +1,80 @@
+﻿@model ProjetoAspNet.Models.PessoaModel
+@{
+    ViewData["Title"] = "Pessoa";
+    List<Pessoa> listaPessoa = ViewBag.ListaPessoa ?? new List<Pessoa>();
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-4 text-center">
+            <h1 class="display-4">Pessoa</h1>
+        </div>
+    </div>
+    
+    <form asp-action="Index" method="post">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input type="text" class="form-control" name="Nome" asp-for="Nome">
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Idade:</label>
+                    <input type="number" class="form-control" name="Idade" asp-for="Idade">
+                    <span asp-validation-for="Idade" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" class="form-control" name="Email" asp-for="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 col-md-6">
+                <button type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+        </div>
+    </form>
+
+    <hr />
+
+    <div class="row justify-content-center">
+        <div class="col-4 text-center">
+            <h1 class="display-6">Lista de Pessoas</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4 text-center">
+            <p>Somente pessoas com idade superior a 30, serão exibidos.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            @foreach(var pessoa in listaPessoa)
+            {
+                <div class="card text-bg-light mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">@pessoa.Nome</h5>
+                        <p class="card-text">Idade: @pessoa.Idade</p>
+                        <p class="card-text">E-mail: @pessoa.Email</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

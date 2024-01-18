@@ -1,0 +1,26 @@
+﻿@{
+    var resultadoFatorial = ViewBag.ResultadoFatorial;
+    var valorOriginal = ViewBag.ValorOriginal;
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-4 text-center">
+            <h1 class="display-4">Resultado</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-4 text-center">
+            <p>O resultado fatorial de <b>@valorOriginal</b> é:</p>
+            <p><h5>@resultadoFatorial</h5></p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-4 d-flex justify-content-center">
+            <a asp-action="index" class="btn btn-primary">Calcular outro numero</a>
+        </div>
+    </div>
+
+</div>

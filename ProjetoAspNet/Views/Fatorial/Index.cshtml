@@ -1,0 +1,30 @@
+﻿@model ProjetoAspNet.Models.FatorialModel
+@{
+    ViewData["Title"] = "Fatorial";
+    
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-4 text-center">
+            <h1 class="display-4">Fatorial</h1>
+        </div>
+    </div>
+    <form asp-action="Resultado" method="post">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label>Digite um número inteiro não negativo:</label>
+                    <input type="number" class="form-control" name="numero" asp-for="Numero">
+                    <span asp-validation-for="Numero" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 col-md-6">
+                <button type="submit" class="btn btn-primary">Calcular</button>
+            </div>
+        </div>
+    </form>
+</div>
